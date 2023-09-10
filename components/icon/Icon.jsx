@@ -2,11 +2,14 @@ import React from 'react'
 import { Image, StyleSheet, TouchableOpacity } from 'react-native'
 
 const Icon = (props) => {
-
+    const { url } = props
     return (
+
         <TouchableOpacity>
             <Image
-                source={require("../../assets/calendar.png")}
+                // source={require("../../assets/calendar.png")}
+                source={{ uri: '../../assets/calendar.png' }}
+
                 style={styles.icon}
             />
         </TouchableOpacity>
