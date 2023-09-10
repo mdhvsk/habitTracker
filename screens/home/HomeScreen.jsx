@@ -33,17 +33,9 @@ const HomeScreen = () => {
           <Text style={styles.headerText}>Madhav!</Text>
         </View>
         <View style={styles.capture}>
-          {showCamera ? (
-            <CameraComponent onPress={toggleCamera} onClose={toggleCamera} />
-          ) : (
-            <TouchableOpacity style={styles.button} onPress={toggleCamera}>
-              <Text style={styles.text}> Capture </Text>
-            </TouchableOpacity>
-          )
-
-
-          }
-
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Camera')}>
+            <Text style={styles.text}> Capture </Text>
+          </TouchableOpacity>
         </View>
         <BottomNav />
       </ImageBackground>
