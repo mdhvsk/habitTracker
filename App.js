@@ -1,23 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Alert, Button, SafeAreaView } from 'react-native';
-import HomeScreen from './screens/home/HomeScreen';
+import HomeScreen from './src/screens/home/HomeScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LoginScreen from './screens/login/LoginScreen';
-import CameraComponent from './components/camera/CameraComponent';
+import LoginScreen from './src/screens/login/LoginScreen';
+import CameraComponent from './src/components/camera/CameraComponent';
+import SignUpScreen from './src/screens/register/SignUpScreen';
+import ConfirmEmailScreen from './src/screens/confirm_email/ConfirmEmailScreen';
+import ForgotPasswordScreen from './src/screens/forgot_password/ForgotPasswordScreen';
+import ResetPasswordScreen from './src/screens/forgot_password/ResetPasswordScreen';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer style={styles.container}>
+    <NavigationContainer >
       <Stack.Navigator initialRouteName={"Login"}>
-        <Stack.Screen name="Login" component={LoginScreen}></Stack.Screen>
+        <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }}></Stack.Screen>
+        <Stack.Screen name="Sign Up" component={SignUpScreen}></Stack.Screen>
+        <Stack.Screen name="Confirm Email" component={ConfirmEmailScreen}></Stack.Screen>
+        <Stack.Screen name="Forgot Password" component={ForgotPasswordScreen}></Stack.Screen>
+        <Stack.Screen name="Reset Password" component={ResetPasswordScreen}></Stack.Screen>
+
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}></Stack.Screen>
         <Stack.Screen name="Camera" component={CameraComponent}></Stack.Screen>
 
       </Stack.Navigator>
     </NavigationContainer>
+
+
 
   );
 }
@@ -25,11 +36,8 @@ export default function App() {
 const styles = StyleSheet.create({
 
   container: {
-    backgroundColor: 'yellow',
-
+    flex: 1,
+    backgroundColor: 'black'
   },
-  headerText: {
-    color: "green",
-    fontSize: 20
-  }
+
 });
